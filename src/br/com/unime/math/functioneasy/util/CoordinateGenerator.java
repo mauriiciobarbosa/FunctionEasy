@@ -47,7 +47,7 @@ public class CoordinateGenerator {
 
 		List<Coordinate> coordinates = new ArrayList<Coordinate>();
 
-		for (double x = function.getxMin(); x <= function.getxMax(); x++) {
+		for (double x = function.getxMin(); x <= function.getxMax(); x+=0.5) {
 			String fX = function.getDescription().replace("x", String.valueOf(x));
 
 			if (validateFunction(fX)) {
