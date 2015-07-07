@@ -5,7 +5,19 @@
  */
 package br.com.unime.math.functioneasy.gui;
 
-import static br.com.unime.math.functioneasy.util.PropertiesBR.*;
+import static br.com.unime.math.functioneasy.util.PropertiesBR.GRAPH_NAME;
+import static br.com.unime.math.functioneasy.util.PropertiesBR.LABEL_APP_NAME;
+import static br.com.unime.math.functioneasy.util.PropertiesBR.LABEL_APP_VERSION;
+import static br.com.unime.math.functioneasy.util.PropertiesBR.LABEL_TITLE_ERROR;
+import static br.com.unime.math.functioneasy.util.PropertiesBR.MESSAGE_ERROR_1;
+import static br.com.unime.math.functioneasy.util.PropertiesBR.MESSAGE_ERROR_2;
+import static br.com.unime.math.functioneasy.util.PropertiesBR.MESSAGE_ERROR_3;
+import static br.com.unime.math.functioneasy.util.PropertiesBR.MESSAGE_ERROR_4;
+import static br.com.unime.math.functioneasy.util.PropertiesBR.MESSAGE_ERROR_5;
+import static br.com.unime.math.functioneasy.util.PropertiesBR.MESSAGE_ERROR_6;
+import static br.com.unime.math.functioneasy.util.PropertiesBR.MESSAGE_ERROR_7;
+import static br.com.unime.math.functioneasy.util.PropertiesBR.MESSAGE_ERROR_8;
+import static br.com.unime.math.functioneasy.util.PropertiesBR.SEPARATOR;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,11 +30,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import expr.SyntaxException;
 import br.com.unime.math.functioneasy.model.Coordinate;
 import br.com.unime.math.functioneasy.util.CoordinateGenerator;
 import br.com.unime.math.functioneasy.util.GraphGenerator;
 import br.com.unime.math.functioneasy.util.NumberUtils;
+import expr.SyntaxException;
 
 /**
  *
@@ -32,8 +44,6 @@ public class FunctionEasyUI extends JFrame {
     
     private static String APP_PATH;
     private static final String IMAGES_FOLDER = "graphs";
-    private static final int WIDTH = 350;
-    private static final int HEIGHT = 350;
     
     private GraphGenerator graphGenerator;
     private CoordinateGenerator coordinateGenerator;
@@ -82,13 +92,15 @@ public class FunctionEasyUI extends JFrame {
             .addGap(0, 54, Short.MAX_VALUE)
         );
 
-        graphImage.setIcon(new javax.swing.ImageIcon(APP_PATH + File.separator + "graph.png"));
+        graphImage.setIcon(new javax.swing.ImageIcon(APP_PATH + File.separator + "graph.png")); // NOI18N
 
         jLabel1.setText("F(X) =");
+
         jLabel2.setText("X(min) =");
+
         jLabel3.setText("X(max) =");
+
         jButton1.setText("Calcular");
-        
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calculateGraph(evt);
@@ -100,35 +112,38 @@ public class FunctionEasyUI extends JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(graphImage, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(inputXMin, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(inputXMax, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(inputEquation)))
-                        .addGap(27, 27, 27)
-                        .addComponent(jButton1)
-                        .addGap(37, 37, 37)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(462, 462, 462)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(inputXMin, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(inputXMax, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(inputEquation, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(29, 29, 29)
+                .addComponent(jButton1)
+                .addContainerGap(486, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(graphImage, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(inputEquation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
@@ -139,18 +154,19 @@ public class FunctionEasyUI extends JFrame {
                                 .addComponent(jLabel3))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(inputXMin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel2)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(graphImage)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel2))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(jButton1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(graphImage, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
+        setIconImage(new ImageIcon(APP_PATH + File.separator + "icon.png").getImage());
+        
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -168,7 +184,7 @@ public class FunctionEasyUI extends JFrame {
 				graphImage.setIcon(newGraph);
 				pack();
 			} catch (SyntaxException e1) {
-				JOptionPane.showMessageDialog(this, "EQUAÇÃO INVÁLIDA!", LABEL_TITLE_ERROR, JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, MESSAGE_ERROR_8, LABEL_TITLE_ERROR, JOptionPane.ERROR_MESSAGE);
 			} catch (IOException e) {
 				java.util.logging.Logger.getLogger(FunctionEasyUI.class.getName()).log(java.util.logging.Level.SEVERE, null, e);
 			}
@@ -179,17 +195,17 @@ public class FunctionEasyUI extends JFrame {
     private boolean validateInput(String equation, String xMin, String xMax) {
 
     	if (equation.isEmpty()) {
-    		JOptionPane.showMessageDialog(this, "FAVOR INFORMAR EQUAÇÃO!", LABEL_TITLE_ERROR, JOptionPane.ERROR_MESSAGE);
+    		JOptionPane.showMessageDialog(this, MESSAGE_ERROR_1, LABEL_TITLE_ERROR, JOptionPane.ERROR_MESSAGE);
     		return false;
     	}
 
     	if (xMin.isEmpty()) {
-    		JOptionPane.showMessageDialog(this, "FAVOR INFORMAR LIMITE INFERIOR DE X!", LABEL_TITLE_ERROR, JOptionPane.ERROR_MESSAGE);
+    		JOptionPane.showMessageDialog(this, MESSAGE_ERROR_2, LABEL_TITLE_ERROR, JOptionPane.ERROR_MESSAGE);
     		return false;
     	}
 
     	if (xMax.isEmpty()) {
-    		JOptionPane.showMessageDialog(this, "FAVOR INFORMAR LIMITE SUPERIOR DE X!", LABEL_TITLE_ERROR, JOptionPane.ERROR_MESSAGE);
+    		JOptionPane.showMessageDialog(this, MESSAGE_ERROR_3, LABEL_TITLE_ERROR, JOptionPane.ERROR_MESSAGE);
     		return false;
     	}
     	
@@ -198,25 +214,25 @@ public class FunctionEasyUI extends JFrame {
     	String[] listXMax = xMax.split(SEPARATOR);
     	
     	if (listEquation.length != listXMin.length) {
-    		JOptionPane.showMessageDialog(this, "QUANTIDADE DE LIMITES INFERIORES INVÁLIDA!", LABEL_TITLE_ERROR, JOptionPane.ERROR_MESSAGE);
+    		JOptionPane.showMessageDialog(this, MESSAGE_ERROR_4, LABEL_TITLE_ERROR, JOptionPane.ERROR_MESSAGE);
     		return false;
     	}
     	
     	if (listEquation.length != listXMax.length) {
-    		JOptionPane.showMessageDialog(this, "QUANTIDADE DE LIMITES SUPERIORES INVÁLIDA!", LABEL_TITLE_ERROR, JOptionPane.ERROR_MESSAGE);
+    		JOptionPane.showMessageDialog(this, MESSAGE_ERROR_5, LABEL_TITLE_ERROR, JOptionPane.ERROR_MESSAGE);
     		return false;
     	}
     	
     	for (String valueXMin : listXMin) {
 			if (!NumberUtils.isNumber(valueXMin)) {
-				JOptionPane.showMessageDialog(this, "LIMITE INFERIOR DE X INVÁLIDO!", LABEL_TITLE_ERROR, JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, MESSAGE_ERROR_6, LABEL_TITLE_ERROR, JOptionPane.ERROR_MESSAGE);
 	    		return false;
 			}
 		}
     	
     	for (String valueXMax : listXMax) {
 			if (!NumberUtils.isNumber(valueXMax)) {
-				JOptionPane.showMessageDialog(this, "LIMITE SUPERIOR DE X INVÁLIDO!", LABEL_TITLE_ERROR, JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, MESSAGE_ERROR_7, LABEL_TITLE_ERROR, JOptionPane.ERROR_MESSAGE);
 	    		return false;
 			}
 		}
@@ -268,14 +284,14 @@ public class FunctionEasyUI extends JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel graphImage;
+    private javax.swing.JTextField inputEquation;
+    private javax.swing.JTextField inputXMax;
+    private javax.swing.JTextField inputXMin;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField inputEquation;
-    private javax.swing.JTextField inputXMin;
-    private javax.swing.JTextField inputXMax;
     // End of variables declaration//GEN-END:variables
 
 }
